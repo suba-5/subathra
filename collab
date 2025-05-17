@@ -1,0 +1,53 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
+import joblib
+
+# Sample patient data (You can replace this with real data)
+# Each row: [Age, BMI, Blood Pressure, Glucose Level, Cholesterol]
+# Target: 0 = Healthy, 1 = Diabetes, 2 = Hypertension
+data = {
+    'Age': [45, 34, 65, 50, 23, 57],
+    'BMI': [24.0, 30.5, 28.3, 33.1, 22.8, 31.5],
+    'Blood_Pressure': [120, 135, 140, 150, 110, 145],
+    'Glucose': [85, 155, 200, 180, 90, 190],
+    'Cholesterol': [180, 210, 240, 230, 160, 250],
+    'Disease': [0, 1, 2, 2, 0, 1]
+}
+
+# Load data into DataFrame
+df = pd.DataFrame(data)
+
+# Features and Target
+X = df[['Age', 'BMI', 'Blood_Pressure', 'Glucose', 'Cholesterol']]
+y = df['Disease']
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Train model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Evaluate
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Classification Report:\n", classification_report(y_test, y_pred))
+
+# Save the model
+joblib.dump(model, 'disease_predictor_model.pkl')
+
+# Function to predict for new patient
+def predict_disease(age, bmi, bp, glucose, cholesterol):
+    model = joblib.load('disease_predictor_model.pkl')
+    input_data = [[age, bmi, bp, glucose, cholesterol]]
+    prediction = model.predict(input_data)[0]
+    diseases = {0: "Healthy", 1: "Diabetes", 2: "Hypertension"}
+    return diseases[prediction]
+
+# Example usage
+new_patient = predict_disease(52, 29.5, 138, 170, 220)
+print("Predicted Disease:", new_patient)
