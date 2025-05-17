@@ -1,0 +1,53 @@
+1. MIMIC-III / MIMIC-IV (Medical Information Mart for Intensive Care)
+
+Description: Contains de-identified health-related data of ICU patients.
+
+Includes: Vitals, labs, medications, diagnoses (ICD codes), demographics, etc.
+
+Use Case: Disease prediction, mortality prediction, readmission risk, etc.
+
+Link: https://physionet.org/content/mimiciv/2.2/
+
+Access: Requires credentialed access (free after completing a data use agreement and course).
+
+
+2. UCI Machine Learning Repository - Heart Disease Dataset
+
+Description: Patient data for predicting the presence of heart disease.
+
+Includes: Age, sex, chest pain type, resting BP, cholesterol, etc.
+
+Use Case: Binary classification (heart disease present or not).
+
+Link: https://archive.ics.uci.edu/ml/datasets/Heart+Disease
+
+
+3. Diabetes 130-US hospitals Dataset
+
+Description: 10 years of clinical care data from diabetic patients.
+
+Includes: 100,000+ records, lab results, medication, readmission.
+
+Use Case: Predicting diabetes complications, hospital readmission.
+
+Link: https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008
+
+
+4. Breast Cancer Wisconsin Dataset
+
+Description: Diagnostic data for breast cancer classification.
+
+Includes: Cell nucleus characteristics.
+
+Use Case: Classifying benign vs malignant tumors.
+
+Link: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)
+
+
+5. COVID-19 Data Repository (Johns Hopkins, Kaggle, etc.)
+
+Description: Real-time and historical data on COVID-19.
+
+Use Case: Predicting infection risk, severity, or outcomes.
+
+Link: https://www.kaggle.com/datasets/imdevskp/corona-virus-report
